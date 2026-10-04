@@ -11,16 +11,7 @@ export function fromIso(iso: string): Date {
   return new Date(y, m - 1, d);
 }
 
-export function addDays(iso: string, days: number): string {
-  const d = fromIso(iso);
-  d.setDate(d.getDate() + days);
-  return toIso(d);
-}
-
 export function today(): string {
   return toIso(new Date());
 }
 
-export function shortDate(iso: string): string {
-  return fromIso(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-}

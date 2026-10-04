@@ -1,6 +1,6 @@
 # Workouts (iPhone app)
 
-Expo app that shows the week's workouts from the
+Expo app that shows **today's** workout from the
 [workout-planner](../workout-planner) API (`GET /api/workouts`).
 This is a separate project; the API lives in `../workout-planner`.
 
@@ -37,11 +37,14 @@ then use `http://127.0.0.1:8001` and `local-test-key` in the app's Settings.
 ## Files
 
 ```
-App.tsx               picks Settings (first launch) or the week view
-src/WeekScreen.tsx    week of workout cards, prev/next week, pull to refresh
-src/SettingsScreen.tsx  server URL + API key form
-src/api.ts            fetch /api/workouts with the X-API-Key header
-src/settings.ts       read/write URL + key in the keychain (expo-secure-store)
-src/dates.ts          date helpers
-src/theme.ts          light/dark colors
+App.tsx                       loads fonts, picks Settings (first launch) or Today
+src/TodayScreen.tsx           "Workout for Today": mission card, power ring, exercise cards to tick off
+src/SettingsScreen.tsx        server URL + API key form
+src/components/ArenaBackground.tsx  dark gradient, speed lines, rising embers
+src/components/ProgressRing.tsx     animated progress ring
+src/api.ts                    fetch /api/workouts?date= with the X-API-Key header
+src/settings.ts               read/write URL + key in the keychain (expo-secure-store)
+src/progress.ts               remembers ticked-off exercises per day
+src/dates.ts                  date helpers
+src/theme.ts                  colors, gradients, fonts
 ```
